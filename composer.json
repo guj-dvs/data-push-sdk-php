@@ -22,7 +22,6 @@
   },
   "require-dev": {
     "codeception/codeception": "^2.3",
-    "singpolyma/openpgp-php": "^0.3.0",
     "codeception/aspect-mock": "^2.1"
   }
 }
