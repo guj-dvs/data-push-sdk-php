@@ -331,4 +331,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
  
 ## License
 
-MIT? GNU GPL? 
+GNU General Public License v3.0
