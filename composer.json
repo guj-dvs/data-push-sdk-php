@@ -1,0 +1,28 @@
+{
+  "name": "guj-dvs/data-push-sdk-php",
+  "description": "This SDK provides an easy to use interface for secured data exchange between G+J and 3rd Party Applications. All communications are GPG encrypted.",
+  "type": "library",
+  "require": {
+    "aws/aws-sdk-php": "^3.35",
+    "jasonhinkle/php-gpg": "^1.6"
+  },
+  "license": "gpl-3.0",
+  "authors": [
+    {
+      "name": "Gruner + Jahr GmbH & Co. KG",
+      "email": "reichel.karsten@guj.de",
+      "homepage": "https://guj.de/",
+      "role": "Lead"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Guj\\DataPush\\": "src/"
+    }
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3",
+    "singpolyma/openpgp-php": "^0.3.0",
+    "codeception/aspect-mock": "^2.1"
+  }
+}
