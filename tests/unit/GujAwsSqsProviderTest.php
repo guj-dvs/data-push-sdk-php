@@ -77,9 +77,9 @@ class GujAwsSqsProviderTest extends \Codeception\Test\Unit
         /** @var \Guj\DataPush\Model\AwsQueueCollection $queueCollection */
         $queueCollection = $method->invokeArgs($awsProviderStub, [&$this->sqsClientStub, 'SampleQueue']);
         // assertions
-        $this->assertEquals($this->awsStandardQueueStub, $queueCollection->getStandard());
-        $this->assertEquals($this->awsErrorQueueStub, $queueCollection->getError());
-        $this->assertEquals($this->awsFatalQueueStub, $queueCollection->getFatal());
+        $this->assertEquals($this->awsStandardQueueStub, $queueCollection->getStandardQueue());
+        $this->assertEquals($this->awsErrorQueueStub, $queueCollection->getErrorQueue());
+        $this->assertEquals($this->awsFatalQueueStub, $queueCollection->getFatalQueue());
     }
 
     /**
@@ -305,13 +305,13 @@ class GujAwsSqsProviderTest extends \Codeception\Test\Unit
         $this->awsQueueCollectionStub = Stub::make(
             AwsQueueCollection::class,
             array(
-                'getStandard' => function () {
+                'getStandardQueue' => function () {
                     return $this->awsStandardQueueStub;
                 },
-                'getError'    => function () {
+                'getErrorQueue'    => function () {
                     return $this->awsErrorQueueStub;
                 },
-                'getFatal'    => function () {
+                'getFatalQueue'    => function () {
                     return $this->awsFatalQueueStub;
                 },
             )

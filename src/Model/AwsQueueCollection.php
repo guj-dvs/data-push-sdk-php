@@ -16,53 +16,53 @@ class AwsQueueCollection
     /**
      * @var AwsQueue
      */
-    private $standard;
+    private $standardQueue;
     /**
      * @var AwsQueue
      */
-    private $error;
+    private $errorQueue;
     /**
      * @var AwsQueue
      */
-    private $fatal;
+    private $fatalQueue;
 
     /**
      * AwsQueueCollection constructor.
      */
     public function __construct()
     {
-        $this->standard = new AwsQueue();
-        $this->error = new AwsQueue();
-        $this->fatal = new AwsQueue();
+        $this->standardQueue = new AwsQueue();
+        $this->errorQueue = new AwsQueue();
+        $this->fatalQueue = new AwsQueue();
     }
 
     /**
-     * Get standard queue params
+     * Get standard queue
      *
      * @return AwsQueue
      */
-    public function getStandard()
+    public function getStandardQueue()
     {
-        return $this->standard;
+        return $this->standardQueue;
     }
 
     /**
-     * Get Error queue params
+     * Get Error queue
      *
      * @return AwsQueue
      */
-    public function getError()
+    public function getErrorQueue()
     {
-        return $this->error;
+        return $this->errorQueue;
     }
 
     /**
-     * Get fatal queue params
+     * Get fatal queue
      *
      * @return AwsQueue
      */
-    public function getFatal()
+    public function getFatalQueue()
     {
-        return $this->fatal;
+        return $this->fatalQueue;
     }
 }

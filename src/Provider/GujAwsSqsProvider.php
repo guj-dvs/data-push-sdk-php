@@ -34,6 +34,7 @@ class GujAwsSqsProvider extends ConfigureableProvider
      * Create SqsClient
      *
      * @return SqsClient
+     * @throws GujDataPushException
      */
     protected function createSqsClient(){
 
@@ -55,6 +56,7 @@ class GujAwsSqsProvider extends ConfigureableProvider
 
     /**
      * Create new Aws Queue Collection
+     *
      * @return AwsQueueCollection
      */
     protected function createAwsQueueCollection(){
@@ -104,7 +106,7 @@ class GujAwsSqsProvider extends ConfigureableProvider
                     )
                 ),
                 'MessageBody'       => $data,
-                'QueueUrl'          => $queueCollection->getStandard()->getUrl()
+                'QueueUrl'          => $queueCollection->getStandardQueue()->getUrl()
             );
 
             // send message
@@ -148,8 +150,8 @@ class GujAwsSqsProvider extends ConfigureableProvider
         );
         $fatalQueueUrl = $createFatalQueueResult->get('QueueUrl');
         $fatalQueueArn = $sqsClient->getQueueArn($fatalQueueUrl);
-        $queueCollection->getFatal()->setUrl($fatalQueueUrl);
-        $queueCollection->getFatal()->setArn($fatalQueueArn);
+        $queueCollection->getFatalQueue()->setUrl($fatalQueueUrl);
+        $queueCollection->getFatalQueue()->setArn($fatalQueueArn);
 
         /** @var Result $result */
         $createErrorQueueResult = $sqsClient->createQueue(
@@ -163,8 +165,8 @@ class GujAwsSqsProvider extends ConfigureableProvider
         $errorQueueUrl = $createErrorQueueResult->get('QueueUrl');
         $errorQueueArn = $sqsClient->getQueueArn($errorQueueUrl);
 
-        $queueCollection->getError()->setUrl($errorQueueUrl);
-        $queueCollection->getError()->setArn($errorQueueArn);
+        $queueCollection->getErrorQueue()->setUrl($errorQueueUrl);
+        $queueCollection->getErrorQueue()->setArn($errorQueueArn);
 
         /** @var Result $result */
         $createStandardQueueResult = $sqsClient->createQueue(
@@ -178,8 +180,8 @@ class GujAwsSqsProvider extends ConfigureableProvider
         $standardQueueUrl = $createStandardQueueResult->get('QueueUrl');
         $standardQueueArn = $sqsClient->getQueueArn($standardQueueUrl);
 
-        $queueCollection->getStandard()->setUrl($standardQueueUrl);
-        $queueCollection->getStandard()->setArn($standardQueueArn);
+        $queueCollection->getStandardQueue()->setUrl($standardQueueUrl);
+        $queueCollection->getStandardQueue()->setArn($standardQueueArn);
 
         return $queueCollection;
     }

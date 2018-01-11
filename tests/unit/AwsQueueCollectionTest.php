@@ -15,8 +15,8 @@ class AwsQueueCollectionTest extends \Codeception\Test\Unit
         $this->tester->wantToTest('Getters and Setters of AwsQueueCollection model');
 
         $awsQueueCollection = new \Guj\DataPush\Model\AwsQueueCollection();
-        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getStandard());
-        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getFatal());
-        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getError());
+        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getStandardQueue());
+        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getFatalQueue());
+        $this->assertInstanceOf('\Guj\DataPush\Model\AwsQueue', $awsQueueCollection->getErrorQueue());
     }
 }
