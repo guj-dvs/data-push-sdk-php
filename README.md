@@ -94,7 +94,9 @@ require "vendor/autoload.php";
 
 use \Guj\DataPush\Provider\GujDataPushProvider;
 
-
+/**
+ * Create array for pushdata request
+ */
 $data = array(
     'version'           => '1.0.0', 
     'producer'          => 'TestProducer', // REQUIRED
