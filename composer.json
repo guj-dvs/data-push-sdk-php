@@ -6,7 +6,7 @@
     "aws/aws-sdk-php": "^3.35",
     "jasonhinkle/php-gpg": "^1.6"
   },
-  "license": "gpl-3.0",
+  "license": "GPL-3.0-only",
   "authors": [
     {
       "name": "Gruner + Jahr GmbH & Co. KG",
